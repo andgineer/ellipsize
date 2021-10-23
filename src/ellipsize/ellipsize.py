@@ -74,7 +74,10 @@ def format_ellipsized(
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
 ) -> str:
-    """Use pprint.pformat to convert ellipsize result into string.
+    """Pformat ellipsized `obj`.
+
+    Use [pprint.pformat](https://docs.python.org/3/library/pprint.html)
+    to convert ellipsize result into string
 
     Args:
         obj: Python object to ellipsize
@@ -94,7 +97,7 @@ def print_ellipsized(
     max_item_length: int = 1024,
     **kwargs: Any,
 ) -> None:
-    """Print ellipsize `obj with pprint`.
+    """Print ellipsize `obj` with [pprint](https://docs.python.org/3/library/pprint.html).
 
     Can print many objects, like general print.
     And pass to print args like [end](https://realpython.com/lessons/sep-end-and-flush/).
