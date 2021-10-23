@@ -1,0 +1,16 @@
+site_name: ellipsize
+site_url: https://andgineer.github.io/ellipsize
+site_author: Andrey Sorokin
+
+# Repository
+repo_name: ellipsize
+repo_url: https://github.com/andgineer/ellipsize
+edit_uri: edit/master/docs
+docs_dir: docs
+
+plugins:
+  - awesome-pages
+  - search
+
+theme:
+  name: readthedocs
