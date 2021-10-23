@@ -67,7 +67,7 @@ def ellipsize_format(
     max_list_items_to_show: int = 10,
     max_item_length: int = 1024,
 ) -> str:
-    """Use pprint.pformat for convert ellipsize result into string."""
+    """Use pprint.pformat to convert ellipsize result into string."""
     return pformat(
         ellipsize(
             obj, max_list_items_to_show=max_list_items_to_show, max_item_length=max_item_length
