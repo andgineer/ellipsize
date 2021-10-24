@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://andgineer.github.io/ellipsize/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andgineer.github.io/ellipsize/docstrings/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andgineer.github.io/ellipsize/docstrings/ellipsize/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andgineer.github.io/ellipsize/docstrings/version/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
