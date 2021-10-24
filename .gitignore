@@ -1,3 +1,4 @@
 site
 docs/docstrings
 .idea
+**/__pycache__
