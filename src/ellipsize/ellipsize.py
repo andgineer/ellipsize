@@ -97,10 +97,10 @@ def print_ellipsized(
     max_item_length: int = 1024,
     **kwargs: Any,
 ) -> None:
-    """Print ellipsize `obj` with [pprint](https://docs.python.org/3/library/pprint.html).
+    """Print ellipsized `obj` with [pprint](https://docs.python.org/3/library/pprint.html).
 
     Can print many objects, like general print.
-    And pass to print args like [end](https://realpython.com/lessons/sep-end-and-flush/).
+    Pass args to print like [end](https://realpython.com/lessons/sep-end-and-flush/).
 
     Args:
         objs: Python objects to ellipsize
