@@ -54,6 +54,8 @@ pluggy==1.0.0
     # via pytest
 pre-commit==3.3.1
     # via -r requirements.dev.in
+pydocstyle==6.3.0
+    # via -r requirements.dev.in
 pytest==7.3.1
     # via -r requirements.dev.in
 python-dateutil==2.8.2
@@ -67,6 +69,8 @@ pyyaml-env-tag==0.1
     # via mkdocs
 six==1.16.0
     # via python-dateutil
+snowballstemmer==2.2.0
+    # via pydocstyle
 tomli==2.0.1
     # via pytest
 typer==0.9.0

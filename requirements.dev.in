@@ -1,5 +1,6 @@
 pytest
 lazydocs
+pydocstyle
 mkdocs
 mkdocs-awesome-pages-plugin
 pre-commit
