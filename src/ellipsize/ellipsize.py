@@ -49,7 +49,7 @@ def ellipsize(
     return str(obj)[:max_item_length] + suffix
 
 
-def ellipsize_list(obj: List[Any], max_items_to_show: int, max_item_length: int):
+def ellipsize_list(obj: List[Any], max_items_to_show: int, max_item_length: int) -> List[Any]:
     """Ellipsize list."""
     result_list = [
         ellipsize(
