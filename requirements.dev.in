@@ -1,1 +1,4 @@
 pytest
+lazydocs
+mkdocs
+pre-commit
