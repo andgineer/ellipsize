@@ -1,6 +1,6 @@
 """Pretty reducing huge Python objects to visualise them nicely."""
 from pprint import pformat
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 
 class Dots(dict):  # type: ignore # inherit from dict to blend with expected type
@@ -34,39 +34,34 @@ def ellipsize(
     if isinstance(obj, list):
         if len(obj) == 0:
             return obj
-        if isinstance(obj[0], dict):  # Heuristic to pretty show list of dicts with huge items
-            result_list = [
-                ellipsize(
-                    val,
-                    max_items_to_show=max_items_to_show,
-                    max_item_length=max_item_length,
-                )
-                for val in obj[:max_items_to_show]
-            ]
-            if len(obj) > max_items_to_show:
-                result_list.append(Dots())
-            return result_list
-        result = [
-            ellipsize(
-                item,
+        return ellipsize_list(obj, max_items_to_show, max_item_length)
+    if isinstance(obj, dict):
+        result_dict: Dict[str, Any] = {
+            key: ellipsize(
+                val,
                 max_items_to_show=max_items_to_show,
                 max_item_length=max_item_length,
             )
-            for item in obj[:max_items_to_show]
-        ]
-        if len(obj) > max_items_to_show:
-            result.append(Dots())
-        return result
-
-    if isinstance(obj, dict):
-        result_dict: Dict[str, Any] = {}
-        for key, val in obj.items():
-            result_dict[key] = ellipsize(
-                val, max_items_to_show=max_items_to_show, max_item_length=max_item_length
-            )
+            for key, val in obj.items()
+        }
         return result_dict
     suffix = ".." if len(str(obj)) > max_item_length else ""
     return str(obj)[:max_item_length] + suffix
+
+
+def ellipsize_list(obj: List[Any], max_items_to_show: int, max_item_length: int):
+    """Ellipsize list."""
+    result_list = [
+        ellipsize(
+            val,
+            max_items_to_show=max_items_to_show,
+            max_item_length=max_item_length,
+        )
+        for val in obj[:max_items_to_show]
+    ]
+    if len(obj) > max_items_to_show:
+        result_list.append(Dots())
+    return result_list
 
 
 def format_ellipsized(

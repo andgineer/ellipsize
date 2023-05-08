@@ -3,9 +3,6 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("requirements.txt") as f:
-    requirements = f.read().splitlines()
-
 from src.ellipsize import version
 
 setuptools.setup(
@@ -19,7 +16,6 @@ setuptools.setup(
     url="https://andgineer.github.io/ellipsize/",
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    install_requires=requirements,
     python_requires=">=3.7",
     keywords="ellipsis log print",
     classifiers=[
