@@ -2,3 +2,8 @@ site
 docs/docstrings
 .idea/
 **/__pycache__
+**/.pytest_cache
+pytest.xml
+.coverage
+.dmypy.json
+pytest-coverage.txt
