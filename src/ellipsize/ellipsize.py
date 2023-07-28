@@ -1,4 +1,4 @@
-"""Pretty reducing huge Python objects to visualise them nicely."""
+"""Visualize huge Python objects as nicely reduced strings."""
 from pprint import pformat
 from typing import Any, Dict, List
 

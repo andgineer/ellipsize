@@ -3,6 +3,7 @@ docs/docstrings
 .idea/
 **/__pycache__
 **/.pytest_cache
+**/*.egg-info
 pytest.xml
 .coverage
 .dmypy.json
