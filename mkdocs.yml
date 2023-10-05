@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: ellipsize
 site_url: https://andgineer.github.io/ellipsize
 site_author: Andrey Sorokin
@@ -13,4 +14,13 @@ plugins:
   - search
 
 theme:
-  name: readthedocs
+  name: material
+
+extra:
+  alternate:
+    - name: English
+      link: /ellipsize/en/
+      lang: en
+    - name: Russian
+      link: /ellipsize/ru/
+      lang: ru

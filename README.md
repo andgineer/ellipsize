@@ -12,3 +12,6 @@ Handy for AWS outputs etc.
 # Developers
 
 Do not forget to run `. ./activate.sh`.
+
+# Scripts
+    make help

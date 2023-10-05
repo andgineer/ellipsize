@@ -6,7 +6,7 @@ Handy for AWS outputs etc.
 
 # Documentation
 
-[Ellipsize API reference](docstrings/)
+[Ellipsize API reference](/ellipsize/docstrings/)
 
 # source code
 

@@ -4,6 +4,6 @@ pytest-cov
 pylint
 lazydocs
 pydocstyle
-mkdocs
+mkdocs-material
 mkdocs-awesome-pages-plugin
 pre-commit
