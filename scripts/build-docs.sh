@@ -11,5 +11,5 @@ lazydocs \
 
 cp -r ./docs/en/api-reference ./docs/ru/api-reference
 
-mkdocs build -f docs/mkdocs-en.yml
-mkdocs build -f docs/mkdocs-ru.yml
+mkdocs build --config-file docs/mkdocs-en.yml
+mkdocs build --dirty --config-file docs/mkdocs-ru.yml

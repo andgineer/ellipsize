@@ -7,7 +7,7 @@ Handy for AWS outputs etc.
 
 # Documentation
 
-[ellipsize](https://andgineer.github.io/ellipsize/)
+[ellipsize](https://andgineer.github.io/ellipsize/en/)
 
 # Developers
 
