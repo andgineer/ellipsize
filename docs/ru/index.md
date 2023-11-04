@@ -6,7 +6,7 @@
 
 # Документация
 
-[Ellipsize API reference](/ellipsize/docstrings/)
+[Ellipsize API reference](../docstrings/)
 
 # Исходники
 
