@@ -28,8 +28,8 @@ reqs:
 .PHONY: docs # mark as phony so it always runs even we have a docs folder
 .HELP: docs  ## Docs preview
 docs:
-	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
 	./scripts/build-docs.sh
+	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
 	mkdocs serve
 
 .HELP: help  ## Display this message
