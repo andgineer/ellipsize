@@ -7,7 +7,6 @@
 # API Документация
 
 [Ellipsize API reference](api-reference/index.md)
-[nested](nested.md)
 
 # Исходники
 
