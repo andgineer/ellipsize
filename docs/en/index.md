@@ -6,7 +6,7 @@ Handy for multi-kilobytes of AWS outputs etc.
 
 # API Reference
 
-[Ellipsize API reference](api-reference/)
+[Ellipsize API reference](api-reference/index.md)
 
 # source code
 

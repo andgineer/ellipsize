@@ -29,8 +29,8 @@ theme:
 extra:
   alternate:
     - name: English
-      link: /en/
+      link: /ellipsize/en/
       lang: en
     - name: Russian
-      link: /ru/
+      link: /ellipsize/ru/
       lang: ru

@@ -24,4 +24,7 @@ jobs:
           pip install -r requirements.dev.txt
           python -m pip install -e .
       - run: ./scripts/build-docs.sh
-      - run: mkdocs gh-deploy --force -f docs/mkdocs-deploy.yml
+      - run: |
+          git add .
+          git commit -m “mkdocs”
+          git push origin gh-pages
