@@ -7,20 +7,30 @@ site_author: Andrey Sorokin
 repo_name: ellipsize
 repo_url: https://github.com/andgineer/ellipsize
 edit_uri: edit/master/docs
-docs_dir: docs
+docs_dir: 'en'
+site_dir: '../site/en'
 
 plugins:
   - awesome-pages
-  - search
+  - search:
+      lang: en
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets
 
 theme:
   name: material
+  features:
+    - toc.integrate
+    - navigation.tracking
 
 extra:
   alternate:
     - name: English
-      link: /ellipsize/en/
+      link: /en/
       lang: en
     - name: Russian
-      link: /ellipsize/ru/
+      link: /ru/
       lang: ru

@@ -1,12 +1,12 @@
-# Ellipsize
+# Ellipsize with style
 
 Pretty reducing huge Python objects to visualise them nicely.
 
-Handy for AWS outputs etc.
+Handy for multi-kilobytes of AWS outputs etc.
 
-# Documentation
+# API Reference
 
-[Ellipsize API reference](../docstrings/)
+[Ellipsize API reference](api-reference/)
 
 # source code
 

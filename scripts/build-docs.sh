@@ -4,9 +4,12 @@
 #
 
 lazydocs \
-    --output-path="./docs/docstrings" \
-    --overview-file="README.md" \
+    --output-path="./docs/en/api-reference" \
+    --overview-file="index.md" \
     --src-base-url="https://github.com/andgineer/ellipsize/blob/master/" \
     src/ellipsize
 
-mkdocs build
+cp -r ./docs/en/api-reference ./docs/ru/api-reference
+
+mkdocs build -f docs/mkdocs-en.yml
+mkdocs build -f docs/mkdocs-ru.yml

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: ellipsize
+site_url: https://andgineer.github.io/ellipsize
+site_author: Andrey Sorokin
+
+# Repository
+repo_name: ellipsize
+repo_url: https://github.com/andgineer/ellipsize
+edit_uri: edit/master/docs
+docs_dir: 'ru'
+site_dir: '../site/ru'
+
+plugins:
+  - awesome-pages
+  - search:
+      lang: ru
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+
+theme:
+  name: material
+  features:
+    - toc.integrate
+    - navigation.tracking
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Russian
+      link: /ru/
+      lang: ru

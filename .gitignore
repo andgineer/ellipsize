@@ -1,5 +1,6 @@
 site
-docs/docstrings
+.mypy_cache
+**/api-reference/
 .idea/
 **/__pycache__
 **/.pytest_cache
@@ -8,4 +9,3 @@ pytest.xml
 .coverage
 .dmypy.json
 pytest-coverage.txt
-mkdocs.pid
