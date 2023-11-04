@@ -34,6 +34,3 @@ extra:
     - name: Russian
       link: /ellipsize/ru/
       lang: ru
-
-not_in_nav: |
-   /ellipsize/ru/

@@ -28,9 +28,15 @@ reqs:
 .PHONY: docs # mark as phony so it always runs even we have a docs folder
 .HELP: docs  ## Docs preview English
 docs:
-	./scripts/build-docs.sh
+	./scripts/docstrings.sh
 	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
 	mkdocs serve -f docs/mkdocs-en.yml
+
+.HELP: docs-ru  ## Docs preview Russian
+docs-ru:
+	./scripts/docstrings.sh
+	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
+	mkdocs serve -f docs/mkdocs-ru.yml
 
 .HELP: help  ## Display this message
 help:
