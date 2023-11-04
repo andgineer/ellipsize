@@ -22,11 +22,8 @@ jobs:
           python-version: 3.11
       - run: |
           pip install -r requirements.dev.txt
+          pip install ghp-import
           python -m pip install -e .
       - run: ./scripts/build-docs.sh
       - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m “mkdocs”
-          git push origin gh-pages
+          ghp-import --no-jekyll --push --force site
