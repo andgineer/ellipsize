@@ -18,3 +18,19 @@ extra:
     - name: Russian
       link: /ru/
       lang: ru
+
+plugins:
+  - awesome-pages
+  - search:
+      lang: en
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+
+theme:
+  name: material
+  features:
+    - toc.integrate
+    - navigation.tracking
