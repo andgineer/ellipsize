@@ -4,6 +4,8 @@
 Refining large Python objects significantly for appealing visualization is handy,
 especially for managing AWS outputs and similar tasks.
 
+Additionally, it prevents you from accidentally printing megabytes of text.
+
 # Documentation
 
 [ellipsize](https://andgineer.github.io/ellipsize/en/)
