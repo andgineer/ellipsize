@@ -4,10 +4,9 @@
 
 Например для показа многокилобайтных результатов выполнения функций AWS и т.д.
 
-# API Документация
+???+ optional-class "Конфиг сокращенный с помощью ellipsize(config, max_items_to_show=1, max_item_length=16)"
+    ```python
 
-[Ellipsize API reference](api-reference/index.md)
-
-# Исходники
-
-[sorokin.engineer/ellipsize](https://github.com/andgineer/ellipsize)
+    ```json
+    --8<-- "example.json"
+    ```

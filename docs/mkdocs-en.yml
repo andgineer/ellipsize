@@ -18,13 +18,17 @@ plugins:
 markdown_extensions:
   - abbr
   - attr_list
-  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: 'docs'
 
 theme:
   name: material
   features:
     - toc.integrate
     - navigation.tracking
+    - content.code.copy
 
 extra:
   alternate:

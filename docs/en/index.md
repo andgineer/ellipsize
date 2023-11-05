@@ -1,13 +1,11 @@
 # Ellipsize with style
 
-Pretty reducing huge Python objects to visualise them nicely.
+Refining large Python objects significantly for appealing visualization is handy,
+especially for managing AWS outputs and similar tasks.
 
-Handy for multi-kilobytes of AWS outputs etc.
+???+ optional-class "config ellipsized with ellipsize(config, max_items_to_show=1, max_item_length=16)"
+    ```python
 
-# API Reference
-
-[Ellipsize API reference](api-reference/index.md)
-
-# source code
-
-[sorokin.engineer/ellipsize](https://github.com/andgineer/ellipsize)
+    ```json
+    --8<-- "example.json"
+    ```
