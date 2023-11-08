@@ -2,7 +2,7 @@
 # Increments version git tag
 # Saves it into VERSION_FILE
 
-VERSION_FILES=("src/ellipsize/version.py")
+VERSION_FILES=("src/ellipsize/__about__.py")
 
 TAG=$(git describe --tags)
 
@@ -50,7 +50,7 @@ if ! [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 for file in ${VERSION_FILES[*]}; do
-  echo -e "VERSION = \"$NEW_VERSION\"" >$file
+  sed -i "s/__version__[:blank:]]*=[[:blank:]]*\"[0-9.]*\"/__version__ = \"$NEW_TAG\"/" $file
   git add $file
 done
 

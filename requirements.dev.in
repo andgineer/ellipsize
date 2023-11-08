@@ -1,10 +1,19 @@
-mypy
+# test
 pytest
 pytest-cov
+
+# lint
+pre-commit
+mypy
 pylint
-lazydocs
 pydocstyle
+
+# docs
+lazydocs
 mkdocs-material
 pymdown-extensions
 mkdocs-awesome-pages-plugin
-pre-commit
+
+# build
+hatchling
+toml

@@ -1,5 +1,5 @@
 #!make
-VERSION := $(shell cat src/ellipsize/version.py | cut -d= -f2 | sed 's/\"//g; s/ //')
+VERSION := $(shell grep '__version__' src/ellipsize/__about__.py | cut -d '"' -f2)
 export VERSION
 
 .HELP: version ## Show the current version
