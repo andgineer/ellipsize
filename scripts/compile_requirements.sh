@@ -9,4 +9,4 @@ rm -f requirements.dev.txt
 pip-compile requirements.dev.in
 pip-compile requirements.in
 
-python scripts/update_pyproject_deps.py
+python scripts/include_pyproject_requirements.py
