@@ -50,7 +50,7 @@ if ! [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 for file in ${VERSION_FILES[*]}; do
-  sed -i "s/__version__[:blank:]]*=[[:blank:]]*\"[0-9.]*\"/__version__ = \"$NEW_TAG\"/" $file
+  sed -i'' -e "s/__version__[[:blank:]]*=[[:blank:]]*\"[0-9.]*\"/__version__ = \"$NEW_TAG\"/" $file
   git add $file
 done
 
