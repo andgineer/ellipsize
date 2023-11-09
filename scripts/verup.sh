@@ -61,7 +61,7 @@ echo "Changes:"
 echo $COMMIT_MSG
 echo
 
-git add $VERSION_FILE
+git add $VERSION_FILES
 git commit -m "Version $NEW_TAG$COMMIT_MSG"
 
 echo "...push"

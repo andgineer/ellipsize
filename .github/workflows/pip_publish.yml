@@ -1,3 +1,7 @@
+# This workflows will upload a Python Package when a version tag is pushed using build system from pyproject.toml
+# To publish new version use `scripts/verup.sh`
+# Put you pypi credentials (PYPI_USERNAME, PYPI_PASSWORD) into the github repository secrets
+
 name: Upload Python Package
 
 on:
@@ -6,12 +10,12 @@ on:
       - 'v*.*.*'
 
 jobs:
-  deploy:
+  publish:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set version var
       run: |
@@ -19,7 +23,7 @@ jobs:
         echo $RELEASE_VERSION
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
 
