@@ -19,4 +19,4 @@ Do not forget to run `. ./activate.sh`.
     make help
 
 # Codecov
-[Report](https://app.codecov.io/gh/andgineer/airflow/tree/master/src/allipsize)
+[Report](https://app.codecov.io/gh/andgineer/ellipsize/tree/master/src%2Fellipsize)
