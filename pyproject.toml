@@ -9,9 +9,8 @@ description = "Pretty reducing huge Python objects to visualize them nicely."
 keywords = [ "ellipsis", "log", "print",]
 classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 dependencies = []
-
 [[project.authors]]
 name = "Andrey Sorokin"
 email = "andrey@sorokin.engineer"

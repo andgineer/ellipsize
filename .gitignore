@@ -9,3 +9,4 @@ pytest.xml
 .coverage
 .dmypy.json
 pytest-coverage.txt
+*.py-e
