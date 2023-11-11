@@ -43,6 +43,12 @@ jobs:
       uses: py-cov-action/python-coverage-comment-action@v3
       with:
         GITHUB_TOKEN: ${{ github.token }}
+        COMMENT_TEMPLATE: |
+          * [Coverage report]({{ html_report_url }})
+          * [Codecov](https://app.codecov.io/gh/andgineer/ellipsize/tree/master/src%2Fellipsize)
+          {{ marker }}
+        MINIMUM_GREEN: 85
+        MINIMUM_ORANGE: 70
 
     - name: Store Pull Request comment to be posted
       uses: actions/upload-artifact@v3
