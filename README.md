@@ -2,10 +2,9 @@
 [![Coverage](https://raw.githubusercontent.com/andgineer/ellipsize/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/andgineer/ellipsize/blob/python-coverage-comment-action-data/htmlcov/index.html)
 # Ellipsize with style
 
-Refining large Python objects significantly for appealing visualization is handy,
-especially for managing AWS outputs and similar tasks.
+Ellipsizes large Python objects to enhance output readability.
 
-Additionally, it prevents you from accidentally printing megabytes of text.
+Useful for AWS outputs and similar data. Prevents printing excessive text.
 
 # Documentation
 
