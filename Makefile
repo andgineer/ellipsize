@@ -2,6 +2,13 @@
 VERSION := $(shell grep '__version__' src/ellipsize/__about__.py | cut -d '"' -f2)
 export VERSION
 
+# If the first argument is "docs" treat additional "targets" as parameters
+ifeq (docs,$(firstword $(MAKECMDGOALS)))
+  DOCS_LANGUAGE := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # turn the parameters into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
+
 .HELP: version ## Show the current version
 version:
 	echo ${VERSION}
@@ -22,21 +29,19 @@ ver-release:
 reqs:
 	pre-commit autoupdate
 	bash ./scripts/compile_requirements.sh
-	pip install -r requirements.txt
-	pip install -r requirements.dev.txt
+	uv pip install -r requirements.dev.txt
 
 .PHONY: docs # mark as phony so it always runs even we have a docs folder
-.HELP: docs  ## Docs preview English
+.HELP: docs  ## Docs preview for the language specified (bg de en es fr ru)
 docs:
 	./scripts/docstrings.sh
 	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
-	mkdocs serve -f docs/mkdocs-en.yml
+	scripts/docs-render-config.sh $(DOCS_LANGUAGE)
+	mkdocs serve -f docs/_mkdocs.yml
 
-.HELP: docs-ru  ## Docs preview Russian
-docs-ru:
-	./scripts/docstrings.sh
-	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
-	mkdocs serve -f docs/mkdocs-ru.yml
+.HELP: uv  ## Install or upgrade uv
+uv:
+	curl -LsSf https://astral.sh/uv/install.sh | sh
 
 .HELP: help  ## Display this message
 help:

@@ -1,4 +1,5 @@
 """Visualize huge Python objects as nicely reduced strings."""
+
 from pprint import pformat
 from typing import Any, Dict, List
 
@@ -49,7 +50,9 @@ def ellipsize(
     return str(obj)[:max_item_length] + suffix
 
 
-def ellipsize_list(obj: List[Any], max_items_to_show: int, max_item_length: int) -> List[Any]:
+def ellipsize_list(
+    obj: List[Any], max_items_to_show: int, max_item_length: int
+) -> List[Any]:
     """Ellipsize list."""
     result_list = [
         ellipsize(
@@ -82,7 +85,9 @@ def format_ellipsized(
             and his string representation longer than show ".." instead of the rest of it
     """
     return pformat(
-        ellipsize(obj, max_items_to_show=max_items_to_show, max_item_length=max_item_length)
+        ellipsize(
+            obj, max_items_to_show=max_items_to_show, max_item_length=max_item_length
+        )
     )
 
 

@@ -19,3 +19,5 @@ Do not forget to run `. ./activate.sh`.
 
 # Codecov
 [Report](https://app.codecov.io/gh/andgineer/ellipsize/tree/master/src%2Fellipsize)
+
+> Created with cookiecutter using [template](https://github.com/andgineer/cookiecutter-python-package)
