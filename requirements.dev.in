@@ -15,5 +15,6 @@ pymdown-extensions
 mkdocs-awesome-pages-plugin
 
 # build
+-e .
 hatchling
 toml
