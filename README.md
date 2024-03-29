@@ -8,7 +8,7 @@ Useful for AWS outputs and similar data. Prevents printing excessive text.
 
 # Documentation
 
-[ellipsize](https://andgineer.github.io/ellipsize/en/)
+[ellipsize](https://andgineer.github.io/ellipsize/)
 
 # Developers
 
