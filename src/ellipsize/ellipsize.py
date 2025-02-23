@@ -1,7 +1,7 @@
 """Visualize huge Python objects as nicely reduced strings."""
 
 from pprint import pformat
-from typing import Any, Dict, List
+from typing import Any
 
 
 class Dots(dict):  # type: ignore # inherit from dict to blend with expected type
@@ -37,7 +37,7 @@ def ellipsize(
             return obj
         return ellipsize_list(obj, max_items_to_show, max_item_length)
     if isinstance(obj, dict):
-        result_dict: Dict[str, Any] = {
+        result_dict: dict[str, Any] = {
             key: ellipsize(
                 val,
                 max_items_to_show=max_items_to_show,
@@ -51,8 +51,10 @@ def ellipsize(
 
 
 def ellipsize_list(
-    obj: List[Any], max_items_to_show: int, max_item_length: int
-) -> List[Any]:
+    obj: list[Any],
+    max_items_to_show: int,
+    max_item_length: int,
+) -> list[Any]:
     """Ellipsize list."""
     result_list = [
         ellipsize(
@@ -86,8 +88,10 @@ def format_ellipsized(
     """
     return pformat(
         ellipsize(
-            obj, max_items_to_show=max_items_to_show, max_item_length=max_item_length
-        )
+            obj,
+            max_items_to_show=max_items_to_show,
+            max_item_length=max_item_length,
+        ),
     )
 
 
@@ -116,7 +120,7 @@ def print_ellipsized(
                     obj,
                     max_items_to_show=max_items_to_show,
                     max_item_length=max_item_length,
-                )
+                ),
             )
             for obj in objs
         ],

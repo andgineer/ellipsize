@@ -12,9 +12,7 @@ def test_ellipsize():
     }
     assert (
         str(
-            ellipsize(
-                {"a": "12345", "b": a, "c": {"d": a}}, max_item_length=4, max_items_to_show=2
-            )
+            ellipsize({"a": "12345", "b": a, "c": {"d": a}}, max_item_length=4, max_items_to_show=2)
         )
         == "{'a': '1234..', 'b': [1, 2, ..], 'c': {'d': [1, 2, ..]}}"
     )
