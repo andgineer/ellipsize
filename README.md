@@ -5,8 +5,8 @@
 | Name                           |    Stmts |     Miss |   Cover |   Missing |
 |------------------------------- | -------: | -------: | ------: | --------: |
 | src/ellipsize/\_\_about\_\_.py |        1 |        1 |      0% |         1 |
-| src/ellipsize/ellipsize.py     |       26 |        1 |     96% |        37 |
-|                      **TOTAL** |   **27** |    **2** | **93%** |           |
+| src/ellipsize/ellipsize.py     |       37 |        1 |     97% |        37 |
+|                      **TOTAL** |   **38** |    **2** | **95%** |           |
 
 
 ## Setup coverage badge
