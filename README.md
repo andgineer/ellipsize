@@ -1,23 +1,24 @@
 [![Build Status](https://github.com/andgineer/ellipsize/workflows/ci/badge.svg)](https://github.com/andgineer/ellipsize/actions)
 [![Coverage](https://raw.githubusercontent.com/andgineer/ellipsize/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/andgineer/ellipsize/blob/python-coverage-comment-action-data/htmlcov/index.html)
-# Ellipsize with style
 
-Ellipsizes large Python objects to enhance output readability.
+# Ellipsize with Style
 
-Useful for AWS outputs and similar data. Prevents printing excessive text.
+Ellipsize large Python objects to enhance output readability.
 
-# Documentation
+Useful for AWS outputs and similar data structures that can be overwhelming when printed in full.
 
-[ellipsize](https://andgineer.github.io/ellipsize/)
+## Documentation
 
-# Developers
+[Full Documentation](https://andgineer.github.io/ellipsize/)
 
-Do not forget to run `. ./activate.sh`.
+## Development
 
-# Scripts
-    make help
+Run `. ./activate.sh` before starting development.
 
-# Codecov
-[Report](https://app.codecov.io/gh/andgineer/ellipsize/tree/master/src%2Fellipsize)
+Use `make help` to see available commands.
+
+## Coverage Report
+
+[Codecov Report](https://app.codecov.io/gh/andgineer/ellipsize/tree/master/src%2Fellipsize)
 
 > Created with cookiecutter using [template](https://github.com/andgineer/cookiecutter-python-package)

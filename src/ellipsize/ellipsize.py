@@ -12,7 +12,7 @@ class Dots(dict):  # type: ignore # inherit from dict to blend with expected typ
         return ".."
 
 
-def ellipsize(
+def ellipsize(  # noqa: PLR0911
     obj: Any,
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
@@ -36,16 +36,14 @@ def ellipsize(
         if len(obj) == 0:
             return obj
         return ellipsize_list(obj, max_items_to_show, max_item_length)
+    if isinstance(obj, tuple):
+        if len(obj) == 0:
+            return obj
+        return tuple(ellipsize_list(list(obj), max_items_to_show, max_item_length))
     if isinstance(obj, dict):
-        result_dict: dict[str, Any] = {
-            key: ellipsize(
-                val,
-                max_items_to_show=max_items_to_show,
-                max_item_length=max_item_length,
-            )
-            for key, val in obj.items()
-        }
-        return result_dict
+        if len(obj) == 0:
+            return obj
+        return ellipsize_dict(obj, max_items_to_show, max_item_length)
     suffix = ".." if len(str(obj)) > max_item_length else ""
     return str(obj)[:max_item_length] + suffix
 
@@ -67,6 +65,26 @@ def ellipsize_list(
     if len(obj) > max_items_to_show:
         result_list.append(Dots())
     return result_list
+
+
+def ellipsize_dict(
+    obj: dict[Any, Any],
+    max_items_to_show: int,
+    max_item_length: int,
+) -> dict[Any, Any]:
+    """Ellipsize dict."""
+    items = list(obj.items())[:max_items_to_show]
+    result_dict: dict[Any, Any] = {
+        key: ellipsize(
+            val,
+            max_items_to_show=max_items_to_show,
+            max_item_length=max_item_length,
+        )
+        for key, val in items
+    }
+    if len(obj) > max_items_to_show:
+        result_dict[".."] = Dots()
+    return result_dict
 
 
 def format_ellipsized(
