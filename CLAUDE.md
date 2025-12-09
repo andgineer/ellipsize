@@ -11,16 +11,28 @@ This is a Python utility library called `ellipsize` that provides pretty-printin
 ### Setup
 ```bash
 # Initial setup - must be run first
-. ./activate.sh
+source ./activate.sh
 
 # Install/upgrade UV package manager
-make uv
+source ./activate.sh && make uv
 
 # Upgrade all requirements including pre-commit hooks
-make reqs
+source ./activate.sh && make reqs
 ```
 
+**IMPORTANT**: Always activate the virtual environment before running any commands. Use `source ./activate.sh` before each command.
+
 ### Testing and Code Quality
+```bash
+# Run all tests
+source ./activate.sh && pytest
+
+# Run pre-commit hooks for code quality
+source ./activate.sh && pre-commit run --all-files
+```
+
+**IMPORTANT**: Always use `pre-commit run --all-files` for code quality checks. Never run ruff or mypy directly.
+
 Code quality is enforced through pre-commit hooks that run:
 - **Ruff**: Linting and formatting (line length: 100 chars for main code, 99 for tests)
 - **MyPy**: Static type checking with strict configuration
@@ -31,15 +43,15 @@ Coverage thresholds: 85% green, 70% orange
 ### Documentation
 ```bash
 # Build and serve docs locally (supports: bg, de, en, es, fr, ru)
-make docs [language]
+source ./activate.sh && make docs [language]
 ```
 
 ### Version Management
 ```bash
-make version        # Show current version
-make ver-bug        # Bump patch version
-make ver-feature    # Bump minor version
-make ver-release    # Bump major version
+source ./activate.sh && make version        # Show current version
+source ./activate.sh && make ver-bug        # Bump patch version
+source ./activate.sh && make ver-feature    # Bump minor version
+source ./activate.sh && make ver-release    # Bump major version
 ```
 
 ## Code Architecture

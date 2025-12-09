@@ -1,10 +1,20 @@
 """Visualize huge Python objects as nicely reduced strings."""
 
 from pprint import pformat
-from typing import Any
+from typing import Any, Hashable, Union
+
+EllipsizedValue = Union[
+    int,
+    float,
+    str,
+    list["EllipsizedValue"],
+    tuple["EllipsizedValue", ...],
+    dict[Hashable, "EllipsizedValue"],
+    "Dots",
+]
 
 
-class Dots(dict):  # type: ignore # inherit from dict to blend with expected type
+class Dots(dict):  # type: ignore[misc]
     """Show dots inside Python objects repr."""
 
     def __repr__(self) -> str:
@@ -13,10 +23,10 @@ class Dots(dict):  # type: ignore # inherit from dict to blend with expected typ
 
 
 def ellipsize(  # noqa: PLR0911
-    obj: Any,
+    obj: object,
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
-) -> Any:
+) -> EllipsizedValue:
     """Reduce huge list/dict to show on screen.
 
     In lists (including dict items) show only 1st `max_list_items_to_show`
@@ -49,10 +59,10 @@ def ellipsize(  # noqa: PLR0911
 
 
 def ellipsize_list(
-    obj: list[Any],
+    obj: list[object],
     max_items_to_show: int,
     max_item_length: int,
-) -> list[Any]:
+) -> list[EllipsizedValue]:
     """Ellipsize list."""
     result_list = [
         ellipsize(
@@ -68,13 +78,13 @@ def ellipsize_list(
 
 
 def ellipsize_dict(
-    obj: dict[Any, Any],
+    obj: dict[object, object],
     max_items_to_show: int,
     max_item_length: int,
-) -> dict[Any, Any]:
+) -> dict[Hashable, EllipsizedValue]:
     """Ellipsize dict."""
     items = list(obj.items())[:max_items_to_show]
-    result_dict: dict[Any, Any] = {
+    result_dict: dict[Hashable, EllipsizedValue] = {
         key: ellipsize(
             val,
             max_items_to_show=max_items_to_show,
@@ -88,7 +98,7 @@ def ellipsize_dict(
 
 
 def format_ellipsized(
-    obj: Any,
+    obj: object,
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
 ) -> str:
@@ -114,7 +124,7 @@ def format_ellipsized(
 
 
 def print_ellipsized(
-    *objs: Any,
+    *objs: object,
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
     **kwargs: Any,
