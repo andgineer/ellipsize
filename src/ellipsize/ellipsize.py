@@ -22,7 +22,7 @@ class Dots(dict):  # type: ignore[misc]
         return ".."
 
 
-def ellipsize(  # noqa: PLR0911
+def ellipsize(
     obj: object,
     max_items_to_show: int = 10,
     max_item_length: int = 1024,
@@ -42,18 +42,19 @@ def ellipsize(  # noqa: PLR0911
     """
     if isinstance(obj, (int, float)):
         return obj
+
+    # Handle empty collections
+    if isinstance(obj, (list, tuple, dict)) and len(obj) == 0:
+        return obj
+
+    # Handle non-empty collections
     if isinstance(obj, list):
-        if len(obj) == 0:
-            return obj
         return ellipsize_list(obj, max_items_to_show, max_item_length)
     if isinstance(obj, tuple):
-        if len(obj) == 0:
-            return obj
         return tuple(ellipsize_list(list(obj), max_items_to_show, max_item_length))
     if isinstance(obj, dict):
-        if len(obj) == 0:
-            return obj
         return ellipsize_dict(obj, max_items_to_show, max_item_length)
+
     suffix = ".." if len(str(obj)) > max_item_length else ""
     return str(obj)[:max_item_length] + suffix
 

@@ -13,7 +13,7 @@ site_dir: '../site/SITE_PREFIX'
 plugins:
   - awesome-pages
   - search:
-      lang: en
+      lang: LANGUAGE
   - mkdocstrings:
       handlers:
         python:

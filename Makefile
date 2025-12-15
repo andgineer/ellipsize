@@ -32,12 +32,18 @@ reqs:
 	uv pip install -r requirements.dev.txt
 
 .PHONY: docs # mark as phony so it always runs even we have a docs folder
-.HELP: docs  ## Docs preview for the language specified (bg de en es fr ru)
+.HELP: docs  ## Docs preview for the language specified (bg de en es fr ru), like "make docs ru", by default build for English
 docs:
 	./scripts/docstrings.sh
-	open -a "Google Chrome" http://127.0.0.1:8000/ellipsize/
-	scripts/docs-render-config.sh $(DOCS_LANGUAGE)
+	@LANG="$(if $(DOCS_LANGUAGE),$(DOCS_LANGUAGE),en)"; \
+	bash ./scripts/docs-render-config.sh "$$LANG"; \
+	if [ "$$LANG" != "en" ]; then \
+		cp -r ./docs/src/en/images/ ./docs/src/$$LANG/images/ 2>/dev/null || true; \
+		cp ./docs/src/en/reference.md ./docs/src/$$LANG/reference.md; \
+	fi; \
+	(sleep 2 && open -a "Google Chrome" http://127.0.0.1:8000/) & \
 	mkdocs serve -f docs/_mkdocs.yml
+
 
 .HELP: uv  ## Install or upgrade uv
 uv:
