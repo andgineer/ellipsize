@@ -29,7 +29,7 @@ def ellipsize(
 ) -> EllipsizedValue:
     """Reduce huge list/dict to show on screen.
 
-    In lists (including dict items) show only 1st `max_list_items_to_show`
+    In lists (including dict items) show only 1st `max_items_to_show`
     and add ".." if there is more.
     Limit max dict/list length at max_item_length.
 
@@ -38,8 +38,13 @@ def ellipsize(
         max_items_to_show: if List or Dict in obj (including nested) has more items,
             then show ".." instead of the rest items
         max_item_length: if List's or Dict's item are not another List/Dict
-            and his string representation longer than show ".." instead of the rest of it
+            and its string representation is longer, show ".." instead of the rest of it
     """
+    if not isinstance(max_items_to_show, int) or max_items_to_show < 0:
+        raise ValueError(f"max_items_to_show must be a non-negative int, got {max_items_to_show!r}")
+    if not isinstance(max_item_length, int) or max_item_length < 0:
+        raise ValueError(f"max_item_length must be a non-negative int, got {max_item_length!r}")
+
     if isinstance(obj, (int, float)):
         return obj
 
@@ -49,17 +54,18 @@ def ellipsize(
 
     # Handle non-empty collections
     if isinstance(obj, list):
-        return ellipsize_list(obj, max_items_to_show, max_item_length)
+        return _ellipsize_list(obj, max_items_to_show, max_item_length)
     if isinstance(obj, tuple):
-        return tuple(ellipsize_list(list(obj), max_items_to_show, max_item_length))
+        return tuple(_ellipsize_list(list(obj), max_items_to_show, max_item_length))
     if isinstance(obj, dict):
-        return ellipsize_dict(obj, max_items_to_show, max_item_length)
+        return _ellipsize_dict(obj, max_items_to_show, max_item_length)
 
-    suffix = ".." if len(str(obj)) > max_item_length else ""
-    return str(obj)[:max_item_length] + suffix
+    s = str(obj)
+    suffix = ".." if len(s) > max_item_length else ""
+    return s[:max_item_length] + suffix
 
 
-def ellipsize_list(
+def _ellipsize_list(
     obj: list[object],
     max_items_to_show: int,
     max_item_length: int,
@@ -78,7 +84,7 @@ def ellipsize_list(
     return result_list
 
 
-def ellipsize_dict(
+def _ellipsize_dict(
     obj: dict[object, object],
     max_items_to_show: int,
     max_item_length: int,
@@ -113,7 +119,7 @@ def format_ellipsized(
         max_items_to_show: if List or Dict in obj (including nested) has more items,
             then show ".." instead of the rest items
         max_item_length: if List's or Dict's item are not another List/Dict
-            and his string representation longer than show ".." instead of the rest of it
+            and its string representation is longer, show ".." instead of the rest of it
     """
     return pformat(
         ellipsize(
@@ -140,7 +146,7 @@ def print_ellipsized(
         max_items_to_show: if List or Dict in objs (including nested) has more items,
             then show ".." instead of the rest items
         max_item_length: if List's or Dict's item are not another List/Dict
-            and his string representation longer than show ".." instead of the rest of it
+            and its string representation is longer, show ".." instead of the rest of it
     """
     print(
         *[

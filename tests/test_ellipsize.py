@@ -1,3 +1,5 @@
+import pytest
+
 from ellipsize.ellipsize import Dots, ellipsize, format_ellipsized, print_ellipsized
 
 
@@ -65,6 +67,60 @@ def test_tuple_ellipsize():
     nested = ([1, 2, 3], (4, 5, 6, 7))
     result = ellipsize(nested, max_items_to_show=2)
     assert result == ([1, 2, Dots()], (4, 5, Dots()))
+
+
+def test_max_items_to_show_zero():
+    # zero means show nothing, but still append Dots for non-empty collections
+    assert ellipsize([1, 2, 3], max_items_to_show=0) == [Dots()]
+    assert ellipsize((1, 2, 3), max_items_to_show=0) == (Dots(),)
+    result = ellipsize({"a": 1, "b": 2}, max_items_to_show=0)
+    assert list(result.keys()) == [".."]
+    assert isinstance(result[".."], Dots)
+
+
+def test_max_items_to_show_exact_boundary():
+    # list length == max_items_to_show: no Dots appended
+    assert ellipsize([1, 2, 3], max_items_to_show=3) == [1, 2, 3]
+    assert ellipsize([1, 2, 3], max_items_to_show=4) == [1, 2, 3]
+
+
+def test_max_item_length_boundary():
+    # string exactly at the limit: no ".." appended
+    assert ellipsize("abcde", max_item_length=5) == "abcde"
+    # one char over: truncate + ".."
+    assert ellipsize("abcdef", max_item_length=5) == "abcde.."
+
+
+def test_dot_dot_key_in_dict():
+    # if the dict already has ".." as a key and gets truncated,
+    # the ellipsis marker overwrites the original ".." value
+    obj = {"..": "original", "a": 1, "b": 2}
+    result = ellipsize(obj, max_items_to_show=1)
+    assert isinstance(result[".."], Dots)
+
+
+def test_custom_object_repr_truncation():
+    class BigObj:
+        def __repr__(self) -> str:
+            return "x" * 20
+
+    result = ellipsize(BigObj(), max_item_length=5)
+    assert result == "xxxxx.."
+
+
+def test_invalid_params():
+    with pytest.raises(ValueError):
+        ellipsize([1, 2], max_items_to_show=-1)
+    with pytest.raises(ValueError):
+        ellipsize([1, 2], max_item_length=-1)
+    with pytest.raises(ValueError):
+        ellipsize([1, 2], max_items_to_show=1.5)  # type: ignore[arg-type]
+
+
+def test_set_converted_to_string():
+    # sets are not handled as collections, so they become strings
+    result = ellipsize({1, 2, 3})
+    assert isinstance(result, str)
 
 
 def test_print_ellipsized(capsys):
